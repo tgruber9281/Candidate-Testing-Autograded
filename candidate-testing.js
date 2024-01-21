@@ -38,14 +38,23 @@ function gradeQuiz(candidateAnswers) {
   //   console.log("Incorrect");
   // }
 
+
+  let grade = 0;  //TODO 3.2 use this variable to calculate the candidates score.
+  
   for (let i = 0; i < correctAnswers.length; i++) {
-    if (candidateAnswers[i] == correctAnswers[i]) {
+    if (candidateAnswers[i].toLowerCase() == correctAnswers[i].toLowerCase()) {
       console.log(`You answered: ${candidateAnswers[i]}, the correct answer is: ${correctAnswers[i]}.`);
+      grade += 1;
     }
   }
 
-  let grade;  //TODO 3.2 use this variable to calculate the candidates score.
-
+  if (grade / correctAnswers.length * 100 >= 80) {
+    console.log(`Congruatulations! You passed with at least 80% correct! Your score is: ${grade / correctAnswers.length * 100}%`);
+    grade = grade / correctAnswers.length * 100;
+  } else {
+    console.log(`You did not obtain an 80% passing score.  Your score is: ${grade / correctAnswers.length * 100}%`);
+    grade = grade / correctAnswers.length * 100;
+  }
 
   return grade;
 }

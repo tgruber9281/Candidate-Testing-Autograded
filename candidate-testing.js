@@ -42,18 +42,17 @@ function gradeQuiz(candidateAnswers) {
   let grade = 0;  //TODO 3.2 use this variable to calculate the candidates score.
   
   for (let i = 0; i < correctAnswers.length; i++) {
+    console.log(`You answered: ${candidateAnswers[i]}, the correct answer is: ${correctAnswers[i]}.`);
     if (candidateAnswers[i].toLowerCase() == correctAnswers[i].toLowerCase()) {
-      console.log(`You answered: ${candidateAnswers[i]}, the correct answer is: ${correctAnswers[i]}.`);
       grade += 1;
     }
   }
+  grade = grade / correctAnswers.length * 100;
 
-  if (grade / correctAnswers.length * 100 >= 80) {
-    console.log(`Congruatulations! You passed with at least 80% correct! Your score is: ${grade / correctAnswers.length * 100}%`);
-    grade = grade / correctAnswers.length * 100;
+  if (grade >= 80) {
+    console.log(`Congruatulations! You passed with at least 80% correct! Your score is: ${grade}%`);
   } else {
-    console.log(`You did not obtain an 80% passing score.  Your score is: ${grade / correctAnswers.length * 100}%`);
-    grade = grade / correctAnswers.length * 100;
+    console.log(`You did not obtain an 80% passing score.  Your score is: ${grade}%`);
   }
 
   return grade;
